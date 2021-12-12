@@ -4,6 +4,7 @@ import { MysqlData } from "./mysql";
 import { PostgresData } from "./postgresql";
 import { SqliteData } from "./sqlite";
 import { SqlServerData } from "./sqlserver";
+import { MongodbData } from "./mongodb";
 
 export function getDialectData(dialect: Dialect): DialectData  {
   switch (dialect) {
@@ -17,6 +18,8 @@ export function getDialectData(dialect: Dialect): DialectData  {
       return SqliteData
     case 'redshift':
       return RedshiftData
+    case 'mongodb':
+      return MongodbData
     default:
       return SqliteData
   }

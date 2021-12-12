@@ -46,6 +46,7 @@
     "marked": "^2.0.3",
     "material-icons": "^0.7.6",
     "mkdirp": "^1.0.4",
+    "mongodb": "^4.2.1",
     "mssql": "^6.3.1",
     "mysql2": "^2.2.0",
     "node-sass": "^4.12.0",
