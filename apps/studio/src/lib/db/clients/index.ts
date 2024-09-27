@@ -5,6 +5,7 @@ import postgresql from './postgresql';
 import sqlserver from './sqlserver';
 import sqlite from './sqlite';
 import cassandra from './cassandra';
+import mongodb from './mongodb';
 
 /**
  * List of supported database clients
@@ -90,6 +91,11 @@ export const CLIENTS = [
       'cancelQuery',
     ],
   },
+  {
+    key: 'mongodb',
+    name: 'MongoDB',
+    defaultPort: 27017,
+  },
 ];
 
 
@@ -101,5 +107,6 @@ export default {
   cassandra,
   redshift: postgresql,
   mariadb: mysql,
-  cockroachdb: postgresql
+  cockroachdb: postgresql,
+  mongodb,
 };

@@ -29,7 +29,7 @@
                 </select>
               </div>
               <div v-if="config.connectionType">
-                
+
                 <!-- INDIVIDUAL DB CONFIGS -->
                 <postgres-form v-if="config.connectionType === 'cockroachdb'" :config="config" :testing="testing"></postgres-form>
                 <mysql-form v-if="['mysql', 'mariadb'].includes(config.connectionType)" :config="config" :testing="testing" @save="save" @test="testConnection" @connect="submit"></mysql-form>
@@ -37,6 +37,7 @@
                 <postgres-form v-if="config.connectionType === 'redshift'" :config="config" :testing="testing"></postgres-form>
                 <sqlite-form v-if="config.connectionType === 'sqlite'" :config="config" :testing="testing"></sqlite-form>
                 <sql-server-form v-if="config.connectionType === 'sqlserver'" :config="config" :testing="testing"></sql-server-form>
+                <mongodb-form v-if="config.connectionType === 'mongodb'" :config="config" :testing="testing"></mongodb-form>
 
                 <!-- TEST AND CONNECT -->
                 <div class="test-connect row flex-middle">
@@ -71,6 +72,7 @@
   import Sidebar from './common/Sidebar'
   import SqliteForm from './connection/SqliteForm'
   import SqlServerForm from './connection/SqlServerForm'
+  import MongodbForm from './connection/MongodbForm'
   import SaveConnectionForm from './connection/SaveConnectionForm'
   import Split from 'split.js'
   import ImportButton from './connection/ImportButton'
@@ -79,7 +81,7 @@
   // import ImportUrlForm from './connection/ImportUrlForm';
 
   export default {
-    components: { ConnectionSidebar, MysqlForm, PostgresForm, Sidebar, SqliteForm, SqlServerForm, SaveConnectionForm, ImportButton },
+    components: { ConnectionSidebar, MysqlForm, PostgresForm, Sidebar, SqliteForm, SqlServerForm, MongodbForm, SaveConnectionForm, ImportButton },
 
     data() {
       return {

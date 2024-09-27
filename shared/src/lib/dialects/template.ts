@@ -102,8 +102,11 @@ export const timestampColumn = (name: string): TemplatedSchemaItem => ({
     redshift: {
       dataType: 'timestamp',
       defaultValue: 'GETDATE()'
+    },
+    mongodb: {
+      dataType: 'timestamp',
+      defaultValue: 'GETDATE()'
     }
-
   }
 })
 

@@ -21,7 +21,8 @@ export const ConnectionTypes = [
   { name: 'SQLite', value: 'sqlite' },
   { name: 'SQL Server', value: 'sqlserver' },
   { name: 'Amazon Redshift', value: 'redshift' },
-  { name: 'CockroachDB', value: 'cockroachdb' }
+  { name: 'CockroachDB', value: 'cockroachdb' },
+  { name: 'MongoDB', value: 'mongodb' },
 ]
 
 function parseConnectionType(t: Nullable<IDbClients>) {
@@ -31,6 +32,7 @@ function parseConnectionType(t: Nullable<IDbClients>) {
     psql: 'postgresql',
     postgres: 'postgresql',
     mssql: 'sqlserver',
+    mongodb: 'mongodb',
   }
   const allowed = ConnectionTypes.map(c => c.value)
   const result = mapping[t] || t
@@ -53,6 +55,8 @@ export class DbConnectionBase extends ApplicationEntity {
       this.port = 1433
     } else if (this._connectionType === 'cockroachdb') {
       this.port = 26257
+    } else if (this._connectionType === 'mongodb') {
+      this.port = 27017
     }
   }
 

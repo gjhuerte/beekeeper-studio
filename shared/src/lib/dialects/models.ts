@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export const Dialects = ['postgresql', 'sqlite', 'sqlserver', 'mysql', 'redshift'] as const
+export const Dialects = ['postgresql', 'sqlite', 'sqlserver', 'mysql', 'redshift', 'mongodb'] as const
 
 export const SpecialTypes = ['autoincrement']
 export type Dialect = typeof Dialects[number]
@@ -24,7 +24,8 @@ export const DialectTitles: {[K in Dialect]: string} = {
   mysql: "MySQL",
   sqlserver: "SQL Server",
   redshift: "Amazon Redshift",
-  sqlite: "SQLite"
+  sqlite: "SQLite",
+  mongodb: "MongoDB"
 }
 
 export const KnexDialects = ['postgres', 'sqlite3', 'mssql', 'sqlite3', 'redshift', 'mysql']
